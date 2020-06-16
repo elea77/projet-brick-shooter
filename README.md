@@ -6,22 +6,20 @@
 
 #### Windows
 
-##### Créer l'environnement
 `py -3 -m venv venv`
-##### Activer l'environnement
+
 `venv\Scripts\activate`
-##### Lancer le serveur
-`py -3 app.py`
+
+`py -3 main.py`
 <br>
 
 #### Mac OS
 
-##### Créer l'environnement
 `python3 -m venv venv`
-##### Activer l'environnement
+
 `. venv/bin/activate`
-##### Lancer le serveur
-`python3 app.py`
+
+`python3 main.py`
 
 ### Règles du jeu
 
