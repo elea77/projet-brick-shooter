@@ -36,4 +36,4 @@ Violet : diminue la vitesse de tir <br>
 Blanc: neutre <br>
 
 
-### Rémi Karmann et Eléa Carton
+##### Projet réalisé par Rémi Karmann et Eléa Carton
