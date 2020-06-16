@@ -19,7 +19,7 @@ YELLOW = (255,255,0)
 Gauche = False
 Droite = False
 vaisseau = pygame.image.load('vaisseau.png')
-rectangle_vaisseau = pygame.Rect(20,600,31,32)
+rectangle_vaisseau = pygame.Rect(235,600,31,32)
 missiles = []
 
 carre_blanc = pygame.image.load('carre_blanc.png')
@@ -222,7 +222,7 @@ def menu():
 	screen.blit(text, (95,50))
 	
 	font = pygame.font.Font(None, 40)
-	text = font.render("A : Nouvelle partie", 1, WHITE)
+	text = font.render("A: Lancer la partie", 1, WHITE)
 	screen.blit(text, (130,200))
 	text = font.render("B : Règles du jeu", 1, WHITE)
 	screen.blit(text, (130,250))
@@ -372,6 +372,8 @@ def new_game():
 	time.sleep(1)
 
 	while running_game == True:
+		placer_bricks()
+		screen.blit(vaisseau,rectangle_vaisseau)
 		screen.fill(DARK)
 		font = pygame.font.Font(None, 30)
 		text = font.render("Score: " + str(score), 1, WHITE)
@@ -422,7 +424,7 @@ def equipement():
 		screen.blit(text, (26,380))
 
 		text = font.render("ESC : Retourner au menu", 1, WHITE)
-		screen.blit(text, (130,500))
+		screen.blit(text, (130,550))
 
 		pygame.display.flip()
 
@@ -431,28 +433,40 @@ def equipement():
 			# Augmenter la vitesse de tir : a
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_t:
 				if credit >= 120:
+					screen.fill(DARK)
 					if default_cooldown >= 4 :
-						screen.fill(DARK)
 						default_cooldown -= 2
 						credit -= 120
+					else :
+						font = pygame.font.Font(None, 25)
+						text = font.render("Vous avez atteint la vitesse de tir max", 1, WHITE)
+						screen.blit(text, (80,450))
 					
 			
 			# Augmenter la vitesse de déplacement : b
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
 				if credit >= 100:
+					screen.fill(DARK)
 					if vitesse_deplacement < 10 :
-						screen.fill(DARK)
 						vitesse_deplacement += 1
 						credit -= 100
+					else :
+						font = pygame.font.Font(None, 25)
+						text = font.render("Vous avez atteint la vitesse de déplacement max", 1, WHITE)
+						screen.blit(text, (48,450))
 
 			# Diminuer la vitesse de défilement : c
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_c:
 				if credit >= 100:
+					screen.fill(DARK)
 					if vitesse_defilement > 1 :
-						screen.fill(DARK)
 						vitesse_defilement -= 1
 						default_vitesse_apparition += 25
 						credit -= 100
+					else :
+						font = pygame.font.Font(None, 25)
+						text = font.render("Vous avez atteint la vitesse de défilement minimale", 1, WHITE)
+						screen.blit(text, (45,450))
 
 			# Retour au menu
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
