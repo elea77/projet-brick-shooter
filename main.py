@@ -432,6 +432,7 @@ def equipement():
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_t:
 				if credit >= 120:
 					if default_cooldown >= 4 :
+						screen.fill(DARK)
 						default_cooldown -= 2
 						credit -= 120
 					
@@ -439,13 +440,16 @@ def equipement():
 			# Augmenter la vitesse de déplacement : b
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
 				if credit >= 100:
-					vitesse_deplacement += 1
-					credit -= 100
+					if vitesse_deplacement < 10 :
+						screen.fill(DARK)
+						vitesse_deplacement += 1
+						credit -= 100
 
 			# Diminuer la vitesse de défilement : c
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_c:
 				if credit >= 100:
 					if vitesse_defilement > 1 :
+						screen.fill(DARK)
 						vitesse_defilement -= 1
 						default_vitesse_apparition += 25
 						credit -= 100
