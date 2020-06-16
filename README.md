@@ -34,3 +34,6 @@ Orange : augmente la vitesse de défilement <br>
 Vert : diminue la vitesse de déplacement <br>
 Violet : diminue la vitesse de tir <br>
 Blanc: neutre <br>
+
+
+### Rémi Karmann et Eléa Carton
