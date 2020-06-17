@@ -3,7 +3,6 @@ import pygame
 import random
 import csv
 import time
-# from vaisseau import Vaisseau
 
 
 pygame.init()
@@ -54,7 +53,7 @@ block_pret = True
 # Open a new window
 size = (500, 650)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Brick Shooter by ReaGames")
+pygame.display.set_caption("Brick Shooter")
  
 # The clock will be used to control how fast the screen updates
 clock = pygame.time.Clock()
@@ -222,7 +221,7 @@ def menu():
 	screen.blit(text, (95,50))
 	
 	font = pygame.font.Font(None, 40)
-	text = font.render("A: Lancer la partie", 1, WHITE)
+	text = font.render("A : Lancer la partie", 1, WHITE)
 	screen.blit(text, (130,200))
 	text = font.render("B : Règles du jeu", 1, WHITE)
 	screen.blit(text, (130,250))
@@ -241,7 +240,7 @@ def menu():
 				close_game()
 
 			# Nouvelle partie : a
-			if event.type == pygame.KEYDOWN and event.key == pygame.K_t:
+			if event.type == pygame.KEYDOWN and event.key == pygame.K_a or event.type == pygame.KEYDOWN and event.key == pygame.K_t:
 				screen.fill(DARK)
 				new_game()
 			
@@ -431,10 +430,10 @@ def equipement():
 		for event in pygame.event.get():
 
 			# Augmenter la vitesse de tir : a
-			if event.type == pygame.KEYDOWN and event.key == pygame.K_t:
+			if event.type == pygame.KEYDOWN and event.key == pygame.K_a or event.type == pygame.KEYDOWN and event.key == pygame.K_t :
 				if credit >= 120:
 					screen.fill(DARK)
-					if default_cooldown >= 4 :
+					if default_cooldown >= 10 :
 						default_cooldown -= 2
 						credit -= 120
 					else :
@@ -447,7 +446,7 @@ def equipement():
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_b:
 				if credit >= 100:
 					screen.fill(DARK)
-					if vitesse_deplacement < 10 :
+					if vitesse_deplacement < 6 :
 						vitesse_deplacement += 1
 						credit -= 100
 					else :
@@ -459,7 +458,7 @@ def equipement():
 			if event.type == pygame.KEYDOWN and event.key == pygame.K_c:
 				if credit >= 100:
 					screen.fill(DARK)
-					if vitesse_defilement > 1 :
+					if vitesse_defilement >= 2 :
 						vitesse_defilement -= 1
 						default_vitesse_apparition += 25
 						credit -= 100
