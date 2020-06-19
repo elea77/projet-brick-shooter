@@ -179,6 +179,8 @@ def game_over():
 		screen.fill(DARK)
 		running_game = False
 		font = pygame.font.Font(None, 100)
+		title = font.render("GAME OVER", 1, RED)
+		screen.blit(title, (48,223))
 		title = font.render("GAME OVER", 1, WHITE)
 		screen.blit(title, (45,220))
 		font = pygame.font.Font(None, 30)
