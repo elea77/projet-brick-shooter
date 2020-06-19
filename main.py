@@ -86,13 +86,13 @@ def placer_bricks():
 		for i in range(m,h,y): # Margin left / Taille screen horizontal / Écart entre les blocks
 			x = random.randint(1,100)
 			if x < 20 and x >= 10:
-				bricks_orange.append(pygame.Rect(i,random.randint(35,50),40,40))
+				bricks_orange.append(pygame.Rect(i,random.randint(30,50),40,40))
 			if x > 50:
-				bricks_blanc.append(pygame.Rect(i,random.randint(35,50),40,40))
+				bricks_blanc.append(pygame.Rect(i,random.randint(30,50),40,40))
 			if x < 5:
-				bricks_violet.append(pygame.Rect(i,random.randint(35,50),40,40))
+				bricks_violet.append(pygame.Rect(i,random.randint(30,50),40,40))
 			if x < 10 and x >= 5:
-				bricks_vert.append(pygame.Rect(i,random.randint(35,50),40,40))
+				bricks_vert.append(pygame.Rect(i,random.randint(30,50),40,40))
 			block_pret = False
 			vitesse_apparition = default_vitesse_apparition
 
@@ -198,7 +198,7 @@ def game_over():
 					vitesse_defilement = 1
 					score = 0
 					credit = 0
-					default_vitesse_apparition = 100
+					default_vitesse_apparition = 150
 					close_game()
 					running = False
 				if event.type == pygame.QUIT:
